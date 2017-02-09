@@ -67,8 +67,8 @@ namespace SportsStore.UnitTests
 
             //Assert
             Assert.AreEqual(@"<a class=""btn btn-default"" href=""Page1"">1</a>"
-                + @"< class=""btn btn-default btn-primary selected"" href=""Page2"">2</a>"
-                + @"<a class+""btn btn-default"" href=""Page3"">3</a>",
+                + @"<a class=""btn btn-default btn-primary selected"" href=""Page2"">2</a>"
+                + @"<a class=""btn btn-default"" href=""Page3"">3</a>",
                 result.ToString());
         }
 
@@ -150,8 +150,8 @@ namespace SportsStore.UnitTests
             //Assert
             Assert.AreEqual(results.Length, 3);
             Assert.AreEqual(results[0], "Apples");
-            Assert.AreEqual(results[0], "Oranges");
-            Assert.AreEqual(results[0], "Plums");
+            Assert.AreEqual(results[1], "Oranges");
+            Assert.AreEqual(results[2], "Plums");
         }
 
         // Checks to see if the category in the main navigation menu highlights correctly when it's selected.
