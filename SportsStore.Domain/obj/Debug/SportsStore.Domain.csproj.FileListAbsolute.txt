@@ -36,6 +36,7 @@ C:\Users\Evan\Desktop\SportsStore\SportsStore.Domain\bin\Debug\System.Web.Razor.
 C:\Users\Evan\Desktop\SportsStore\SportsStore.Domain\bin\Debug\System.Web.WebPages.xml
 C:\Users\Evan\Desktop\SportsStore\SportsStore.Domain\bin\Debug\System.Web.WebPages.Deployment.xml
 C:\Users\Evan\Desktop\SportsStore\SportsStore.Domain\bin\Debug\System.Web.WebPages.Razor.xml
-C:\Users\Evan\Desktop\SportsStore\SportsStore.Domain\obj\Debug\SportsStore.Domain.csprojResolveAssemblyReference.cache
 C:\Users\Evan\Desktop\SportsStore\SportsStore.Domain\obj\Debug\SportsStore.Domain.dll
 C:\Users\Evan\Desktop\SportsStore\SportsStore.Domain\obj\Debug\SportsStore.Domain.pdb
+C:\Users\Evan\Desktop\SportsStore\SportsStore.Domain\obj\Debug\SportsStore.Domain.csprojResolveAssemblyReference.cache
+C:\Users\Evan\Desktop\SportsStore\SportsStore.Domain\bin\Debug\WebActivator.dll

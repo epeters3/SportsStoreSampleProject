@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using System.Web.Mvc;
 using Ninject;
 using Moq;
 using SportsStore.Domain.Abstract;
 using SportsStore.Domain.Concrete;
 using SportsStore.Domain.Entities;
+using System.Web.Mvc;
 
 namespace SportsStore.WebUI.Infrastructure
 {
