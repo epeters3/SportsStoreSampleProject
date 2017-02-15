@@ -61,5 +61,11 @@ namespace SportsStore.WebUI.Controllers
         {
             return PartialView(cart);
         }
+
+        // Takes visitor to the checkout page
+        public ViewResult Checkout()
+        {
+            return View(new ShippingDetails());
+        }
     }
 }
