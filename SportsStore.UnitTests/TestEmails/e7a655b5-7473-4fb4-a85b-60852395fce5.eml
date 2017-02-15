@@ -1,0 +1,15 @@
+X-Sender: sportsstore@example.com
+X-Receiver: orders@example.com
+MIME-Version: 1.0
+From: sportsstore@example.com
+To: orders@example.com
+Date: 15 Feb 2017 16:55:03 -0700
+Subject: New Order Submitted!
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: quoted-printable
+
+A new order has been submitted=0D=0A---=0D=0AItems:=0D=0A1 x Life=
+jacket (subtotal: $48.951 x Stadium (subtotal: $79,500.00Total or=
+der value: $79,548.95---=0D=0AShip to:=0D=0AJohn Doe=0D=0A459 Dur=
+ella St.=0D=0A=0D=0A=0D=0ABrooklyn=0D=0ANY=0D=0AUS=0D=0A11111=0D=0A=
+---=0D=0AGift wrap: No
