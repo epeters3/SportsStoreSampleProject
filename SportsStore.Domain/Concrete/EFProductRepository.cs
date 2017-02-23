@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using SportsStore.Domain.Abstract;
 using SportsStore.Domain.Entities;
+using System.Reflection;
 
 namespace SportsStore.Domain.Concrete
 {
@@ -27,10 +28,11 @@ namespace SportsStore.Domain.Concrete
                 Product dbEntry = context.Products.Find(product.ProductID);
                 if (dbEntry != null)
                 {
-                    dbEntry.Name = product.Name;
-                    dbEntry.Description = product.Description;
-                    dbEntry.Price = product.Price;
-                    dbEntry.Category = product.Category;
+                    // JEREMY'S MAGIC CODE
+                    Type type = dbEntry.GetType();
+                    foreach (PropertyInfo prop in type.GetProperties(BindingFlags.Public | BindingFlags.Instance))
+                        prop.SetValue(dbEntry, prop.GetValue(product));
+                    // END JEREMY'S MAGIC CODE
                 }
             }
             context.SaveChanges();
