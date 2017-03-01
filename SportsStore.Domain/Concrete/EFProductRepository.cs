@@ -28,7 +28,7 @@ namespace SportsStore.Domain.Concrete
                 Product dbEntry = context.Products.Find(product.ProductID);
                 if (dbEntry != null)
                 {
-                    // JEREMY'S MAGIC CODE
+                    // JEREMY'S MAGIC CODE - Will save all public, instance properties of product into dbEntry.
                     Type type = dbEntry.GetType();
                     foreach (PropertyInfo prop in type.GetProperties(BindingFlags.Public | BindingFlags.Instance))
                         prop.SetValue(dbEntry, prop.GetValue(product));

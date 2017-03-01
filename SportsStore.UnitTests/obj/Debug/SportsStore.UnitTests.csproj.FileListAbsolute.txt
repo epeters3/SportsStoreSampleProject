@@ -65,7 +65,6 @@ C:\Users\Evan\Desktop\SportsStore\SportsStore.UnitTests\bin\Debug\ApplicationIns
 C:\Users\Evan\Desktop\SportsStore\SportsStore.UnitTests\bin\Debug\SportsStore.UnitTests.dll.config
 C:\Users\Evan\Desktop\SportsStore\SportsStore.UnitTests\bin\Debug\SportsStore.UnitTests.dll
 C:\Users\Evan\Desktop\SportsStore\SportsStore.UnitTests\bin\Debug\SportsStore.UnitTests.pdb
-C:\Users\Evan\Desktop\SportsStore\SportsStore.UnitTests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
 C:\Users\Evan\Desktop\SportsStore\SportsStore.UnitTests\bin\Debug\Microsoft.Web.Infrastructure.dll
 C:\Users\Evan\Desktop\SportsStore\SportsStore.UnitTests\bin\Debug\Moq.dll
 C:\Users\Evan\Desktop\SportsStore\SportsStore.UnitTests\bin\Debug\Ninject.dll
@@ -96,7 +95,6 @@ C:\Users\Evan\Desktop\SportsStore\SportsStore.UnitTests\bin\Debug\System.Web.Raz
 C:\Users\Evan\Desktop\SportsStore\SportsStore.UnitTests\bin\Debug\System.Web.WebPages.xml
 C:\Users\Evan\Desktop\SportsStore\SportsStore.UnitTests\bin\Debug\System.Web.WebPages.Deployment.xml
 C:\Users\Evan\Desktop\SportsStore\SportsStore.UnitTests\bin\Debug\System.Web.WebPages.Razor.xml
-C:\Users\Evan\Desktop\SportsStore\SportsStore.UnitTests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.xml
 C:\Users\Evan\Desktop\SportsStore\SportsStore.UnitTests\bin\Debug\EntityFramework.xml
 C:\Users\Evan\Desktop\SportsStore\SportsStore.UnitTests\obj\Debug\SportsStore.UnitTests.dll
 C:\Users\Evan\Desktop\SportsStore\SportsStore.UnitTests\obj\Debug\SportsStore.UnitTests.pdb
