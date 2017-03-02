@@ -4,12 +4,50 @@
     ViewBag.Title = "Products";
 }
 
-@foreach (var p in Model.Products)
-{
-    @Html.Partial("ProductSummary", p)
-}
+<form action="">
+    SEARCH: <input id="searchbar" type="text" value="" />
+</form>
 
-<div class="btn-group pull-right">
-    @Html.PageLinks(Model.PagingInfo, x => Url.Action("List", new { page = x, category = Model.CurrentCategory }))
+@Html.Hidden("category", Model.CurrentCategory)
+@Html.Hidden("page", Model.PagingInfo.CurrentPage)
+
+<div id="productGridContainer">
+    @Html.Partial("ProductGrid", Model)
 </div>
+
+<script>
+    var searchInProgress = false;
+
+    $(document).ready(function () {
+
+        $.each($("#categories").children(), function(_, cat) {
+            $(cat).click(function (e) {
+                e.preventDefault();
+
+                $("#category").val($(cat).html());
+                $("#productGridContainer").load("@Url.Action("ProductGrid")"
+                    + "?query=" + searchbar.val()
+                    + "&category=" + ($(cat).html() == "Home" ? "" : $(cat).html())
+                    + "&page=" + $("#page").val()
+                );
+            });
+        });
+
+        var searchbar = $("#searchbar");
+        searchbar.keyup(function () {
+            $("#productGridContainer").load("@Url.Action("ProductGrid")"
+                + "?query=" + searchbar.val()
+                + "&category=" + $("#category").val()
+                + "&page=" + $("#page").val()
+                );
+            @*$.get("@Url.Action("ProductGrid")?query=" + searchbar.val(),
+                function (data) {
+                    console.log(data);
+                    $("#productGridContainer").html(data);
+                });*@
+ 
+        });
+    });
+
+</script>
 

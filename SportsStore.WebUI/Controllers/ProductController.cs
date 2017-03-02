@@ -48,6 +48,31 @@ namespace SportsStore.WebUI.Controllers
             return View(model);
         }
 
+        public PartialViewResult ProductGrid(string query, string category, int page = 1)
+        {
+            string processedQuery = query.Trim().ToLower();
+
+            ProductsListViewModel model = new ProductsListViewModel
+            {
+                Products = repository.Products
+                    .Where(p => String.IsNullOrWhiteSpace(category) || p.Category == category)
+                    .Where(p => p.Name.ToLower().Contains(processedQuery)
+                        || p.Category.ToLower().Contains(processedQuery)
+                        || p.Description.ToLower().Contains(processedQuery))
+                    .OrderBy(p => p.ProductID),
+                PagingInfo = new PagingInfo
+                {
+                    CurrentPage = page,
+                    ItemsPerPage = PageSize,
+                    TotalItems = category == null ?
+                        repository.Products.Count() :
+                        repository.Products.Where(e => e.Category == category).Count()
+                },
+                CurrentCategory = category
+            };
+            return PartialView("ProductGrid", model);
+        }
+
         public FileContentResult GetImage(int productId)
         {
             Product prod = repository.Products.FirstOrDefault(p => p.ProductID == productId);
