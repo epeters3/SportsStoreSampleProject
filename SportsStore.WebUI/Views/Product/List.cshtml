@@ -4,8 +4,13 @@
     ViewBag.Title = "Products";
 }
 
-<form action="">
-    SEARCH: <input id="searchbar" type="text" value="" />
+<form action="" class="form-horizontal">
+    <div class="form-group">
+        <label for="searchbar" class="col-sm-2 control-label">SEARCH:</label>
+        <div class="col-sm-4">
+            <input id="searchbar" class="form-control" type="text" value=""/>
+        </div>
+    </div>
 </form>
 
 @Html.Hidden("category", Model.CurrentCategory)
@@ -23,31 +28,25 @@
         $.each($("#categories").children(), function(_, cat) {
             $(cat).click(function (e) {
                 e.preventDefault();
-
                 $("#category").val($(cat).html());
-                $("#productGridContainer").load("@Url.Action("ProductGrid")"
-                    + "?query=" + searchbar.val()
-                    + "&category=" + ($(cat).html() == "Home" ? "" : $(cat).html())
-                    + "&page=" + $("#page").val()
-                );
+                reloadProductGrid();
             });
         });
 
         var searchbar = $("#searchbar");
         searchbar.keyup(function () {
-            $("#productGridContainer").load("@Url.Action("ProductGrid")"
-                + "?query=" + searchbar.val()
-                + "&category=" + $("#category").val()
-                + "&page=" + $("#page").val()
-                );
-            @*$.get("@Url.Action("ProductGrid")?query=" + searchbar.val(),
-                function (data) {
-                    console.log(data);
-                    $("#productGridContainer").html(data);
-                });*@
- 
+            reloadProductGrid();
         });
     });
+
+    function reloadProductGrid() {
+        var cat = $("#category");
+        $("#productGridContainer").load("@Url.Action("ProductGrid")"
+            + "?query=" + $("#searchbar").val()
+            + "&category=" + (cat.val() == "Home" ? "" : cat.val())
+            + "&page=" + $("#page").val()
+        );
+    }
 
 </script>
 

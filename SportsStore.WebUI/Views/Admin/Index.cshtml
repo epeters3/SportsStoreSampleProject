@@ -5,37 +5,42 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<div class="panel panel-default">
-    <div class="panel-heading">
-        <h3>All Products</h3>
-    </div>
-    <div class="panel-body">
-        <table class="table table-striped table-condensed table-bordered">
-            <tr>
-                <th class="text-right">ID</th>
-                <th>Name</th>
-                <th class="text-right">Price</th>
-                <th class="text-center">Actions</th>
-            </tr>
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td class="text-right">@item.ProductID</td>
-                    <td>@Html.ActionLink(item.Name, "Edit", new { item.ProductID })</td>
-                    <td class="text-right">@item.Price.ToString("c")</td>
-                    <td class="text-center">
-                        @using (Html.BeginForm("Delete", "Admin"))
-                        {
-                            @Html.Hidden("ProductID", item.ProductID)
-                            <input type="submit" value="Delete" class="btn btn-default btn-xs" />
-                        }
-                        
-                    </td>
-                </tr>
-            }
-        </table>
-    </div>
-    <div class="panel-footer">
-        @Html.ActionLink("Add a new product", "Create", null, new { @class = "btn btn-default" })
-    </div>
+<div id="productAdminList" class="panel panel-default col-md-6">
+    @Html.Partial("_ProductAdminList")
 </div>
+
+<div id="productEditContainer" class="col-md-6">
+
+</div>
+
+
+<script>
+    function loadEditPartial(productId) {
+        $("#productEditContainer").load("@Url.Action("LoadEditPartial", "Admin")?productId=" + productId);
+    }
+
+    function loadProductAdminListPartial() {
+        $("#productAdminList").load("@Url.Action("LoadProductAdminListPartial", "Admin")");
+    }
+
+    function submitProduct() {
+        var productEditContainer = $("#productEditContainer");
+        var form = $(productEditContainer.find("form")[0]);
+
+        var product = {
+            ProductID: $(form.find("#ProductID")[0]).val(),
+            Name: $(form.find("#Name")[0]).val(),
+                Description: $(form.find("#Description")[0]).val(),
+            Price: $(form.find("#Price")[0]).val(),
+                Category: $(form.find("#Category")[0]).val()
+        }
+
+        $.post("@Url.Action("EditAsync", "Admin")", product, function (data) {
+            loadProductAdminListPartial();
+            console.log(data);
+        });
+        console.log(product);
+    }
+
+</script>
+

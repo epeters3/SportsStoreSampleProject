@@ -68,5 +68,23 @@ namespace SportsStore.WebUI.Controllers
             }
             return RedirectToAction("Index");
         }
+
+        public PartialViewResult LoadEditPartial(int productId)
+        {
+            Product product = repository.Products.FirstOrDefault(p => p.ProductID == productId);
+            return PartialView("_Edit", product);
+        }
+
+        public PartialViewResult LoadProductAdminListPartial()
+        {
+            return PartialView("_ProductAdminList", repository.Products);
+        }
+
+        [HttpPost]
+        public JsonResult EditAsync(Product product)
+        {
+            repository.SaveProduct(product);
+            return Json(new { Success = true });
+        }
     }
 }
