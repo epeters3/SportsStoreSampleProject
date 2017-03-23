@@ -11,5 +11,15 @@ namespace SportsStore.WebUI.Models
         public IEnumerable<Product> Products { get; set; }
         public PagingInfo PagingInfo { get; set; }
         public string CurrentCategory { get; set; }
+        public string JsonProducts {
+            get
+            {
+                var serializer = new System.Web.Script.Serialization.JavaScriptSerializer();
+                var json = serializer.Serialize(Products.Select(p => p.Name));
+                var decodedJson = HttpUtility.HtmlDecode(json);
+
+                return json;
+            }
+        }
     }
 }
