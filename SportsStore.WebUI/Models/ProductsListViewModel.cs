@@ -21,5 +21,17 @@ namespace SportsStore.WebUI.Models
                 return json;
             }
         }
+        public int NumProducts
+        {
+            get
+            {
+                int count = 0;
+                foreach (Product p in Products)
+                {
+                    count++;
+                }
+                return count;
+            }
+        }
     }
 }

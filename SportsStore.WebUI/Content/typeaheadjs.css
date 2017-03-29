@@ -1,4 +1,4 @@
-﻿/*THIS CSS TAKEN FROM examples.css at https://twitter.github.io/typeahead.js/examples/ */
+﻿/*THIS CSS TAKEN FROM examples.css AT https://twitter.github.io/typeahead.js/examples/ */
 
 /* scaffolding */
 /* ----------- */
@@ -75,7 +75,7 @@ p + p {
   margin: 50px 0;
 }
 
-.typeahead,
+/*.typeahead,
 .tt-query,
 .tt-hint {
   width: 396px;
@@ -88,7 +88,7 @@ p + p {
      -moz-border-radius: 8px;
           border-radius: 8px;
   outline: none;
-}
+}*/
 
 .typeahead {
   background-color: #fff;

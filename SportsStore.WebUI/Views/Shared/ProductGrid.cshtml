@@ -1,12 +1,17 @@
 ﻿@model SportsStore.WebUI.Models.ProductsListViewModel
-
-
-@foreach (var p in Model.Products)
+@if (Model.NumProducts == 0)
 {
-    @Html.Partial("ProductSummary", p)
+    <div class="alert alert-info">Sorry, no results match your search ¯\_(ツ)_/¯</div>
 }
+else
+{
+    foreach (var p in Model.Products)
+    {
+        @Html.Partial("ProductSummary", p)
+    }
+}
+
 
 <div class="btn-group pull-right">
     @Html.PageLinks(Model.PagingInfo, x => Url.Action("List", new { page = x, category = Model.CurrentCategory }))
 </div>
-
