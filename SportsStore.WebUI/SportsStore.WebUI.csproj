@@ -227,6 +227,7 @@
     <Content Include="Views\Nav\Menu.Mobile.cshtml" />
     <Content Include="Views\Shared\_Layout.Mobile.cshtml" />
     <Content Include="Views\Shared\ProductSummary.Mobile.cshtml" />
+    <Content Include="Views\Cart\Index.Mobile.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
