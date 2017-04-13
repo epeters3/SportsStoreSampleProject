@@ -224,6 +224,9 @@
     <Content Include="Views\Shared\ProductGrid.cshtml" />
     <Content Include="Views\Admin\_Edit.cshtml" />
     <Content Include="Views\Admin\_ProductAdminList.cshtml" />
+    <Content Include="Views\Nav\Menu.Mobile.cshtml" />
+    <Content Include="Views\Shared\_Layout.Mobile.cshtml" />
+    <Content Include="Views\Shared\ProductSummary.Mobile.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
