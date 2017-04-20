@@ -29,5 +29,7 @@ namespace SportsStore.Domain.Entities
 
         public byte[] ImageData { get; set; }
         public string ImageMimeType { get; set; }
+        [Range(0, int.MaxValue, ErrorMessage = "Please enter a non-negative quantity")]
+        public int InventoryQty { get; set; }
     }
 }

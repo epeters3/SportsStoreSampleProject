@@ -6,7 +6,7 @@
     {
         <div class="pull-left" style="margin-right: 10px">
             <img src="@Url.Action("GetImage", "Product", new { Model.ProductID })"
-                    class="img-thumbnail" width="75" height="75" />
+                 class="img-thumbnail" width="75" height="75" />
         </div>
     }
 
@@ -20,7 +20,15 @@
         <div class="pull-right">
             @Html.HiddenFor(x => x.ProductID)
             @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
-            <input type="submit" class="btn btn-success" value="Add to cart" />
+            @if (Model.InventoryQty != 0)
+            {
+                <input type="submit" class="btn btn-success" value="Add to cart" />
+            }
+            else
+            {
+                <input type="submit" class="btn btn-danger" value="Out of stock" disabled />
+            }
+
         </div>
     }
 

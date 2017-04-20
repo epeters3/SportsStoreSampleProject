@@ -4,7 +4,7 @@
     <h2>
         @Model.Name
     </h2>
-    <div class="ui-grid-b">
+    <div class="ui-grid-b" data-toggle="collapse">
         <div class="ui-block-a">
             @Model.Description
         </div>
@@ -16,7 +16,14 @@
             {
                 @Html.HiddenFor(x => x.ProductID)
                 @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
-                <input type="submit" data-inline="true" data-mini="true" value="Add to cart" />
+                if (Model.InventoryQty != 0)
+                {
+                    <input type="submit" data-inline="true" data-mini="true" value="Add to cart" data-theme="b"/>
+                }
+                else
+                {
+                    <input disabled type="submit" data-inline="true" data-mini="true" value="Out of stock" data-theme="a"/>
+                }
             }
         </div>
         <strong>

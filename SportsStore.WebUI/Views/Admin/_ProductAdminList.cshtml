@@ -13,6 +13,7 @@
                 <th class="text-right">ID</th>
                 <th>Name</th>
                 <th class="text-right">Price</th>
+                <th class="text-right">Qty</th>
                 <th class="text-center">Actions</th>
             </tr>
             @foreach (var item in Model)
@@ -21,6 +22,7 @@
                     <td class="text-right">@item.ProductID</td>
                     <td><a onclick="loadEditPartial(@item.ProductID)">@item.Name</a></td>
                     <td class="text-right">@item.Price.ToString("c")</td>
+                    <td class="text-right">@item.InventoryQty</td>
                     <td class="text-center">
                         @using (Html.BeginForm("Delete", "Admin"))
                         {
