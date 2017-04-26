@@ -1,10 +1,10 @@
-﻿@model SportsStore.Domain.Entities.ShippingDetails
+﻿@model SportsStore.WebUI.Models.CartIndexViewModel
 
 @{
     ViewBag.Title = "SportsStore: Checkout";
 }
 
-<h2>Checkout out now</h2>
+<h2>Check out now</h2>
 
 @using (Html.BeginForm())
 {
@@ -78,7 +78,7 @@
                 // document.getElementById('card-nonce').value = nonce;
                 // document.getElementById('nonce-form').submit();
 
-            }
+                }
             },
 
             unsupportedBrowserDetected: function() {
@@ -88,32 +88,32 @@
             // Fill in these cases to respond to various events that can occur while a
             // buyer is using the payment form.
             inputEventReceived: function(inputEvent) {
-            switch (inputEvent.eventType) {
-            case 'focusClassAdded':
-            // Handle as desired
-            break;
-            case 'focusClassRemoved':
-            // Handle as desired
-            break;
-            case 'errorClassAdded':
-            // Handle as desired
-            break;
-            case 'errorClassRemoved':
-            // Handle as desired
-            break;
-            case 'cardBrandChanged':
-            // Handle as desired
-            break;
-            case 'postalCodeChanged':
-            // Handle as desired
-            break;
-            }
+                switch (inputEvent.eventType) {
+                    case 'focusClassAdded':
+                    // Handle as desired
+                    break;
+                    case 'focusClassRemoved':
+                    // Handle as desired
+                    break;
+                    case 'errorClassAdded':
+                    // Handle as desired
+                    break;
+                    case 'errorClassRemoved':
+                    // Handle as desired
+                    break;
+                    case 'cardBrandChanged':
+                    // Handle as desired
+                    break;
+                    case 'postalCodeChanged':
+                    // Handle as desired
+                    break;
+                }
             },
 
             paymentFormLoaded: function() {
-            // Fill in this callback to perform actions after the payment form is
-            // done loading (such as setting the postal code field programmatically).
-            // paymentForm.setPostalCode('94103');
+                // Fill in this callback to perform actions after the payment form is
+                // done loading (such as setting the postal code field programmatically).
+                // paymentForm.setPostalCode('94103');
             }
             }
             });
@@ -122,12 +122,12 @@
             // to charge their card.
             function requestCardNonce(event) {
 
-            // This prevents the Submit button from submitting its associated form.
-            // Instead, clicking the Submit button should tell the SqPaymentForm to generate
-            // a card nonce, which the next line does.
-            event.preventDefault();
+                // This prevents the Submit button from submitting its associated form.
+                // Instead, clicking the Submit button should tell the SqPaymentForm to generate
+                // a card nonce, which the next line does.
+                event.preventDefault();
 
-            paymentForm.requestCardNonce();
+                paymentForm.requestCardNonce();
             }
         </script>
 
@@ -189,8 +189,12 @@
             from the buyer's card information.
             -->
             <div class="text-center">
-                <input class="btn btn-primary" type="submit" value="Complete order" onclick="requestCardNonce(event)" />
+                <input class="btn btn-primary" type="submit" value="Complete order" onclick="requestCardNonce(event); completeOrder();" />
             </div>
         </form>
     </body>
 }
+
+<script>
+
+</script>

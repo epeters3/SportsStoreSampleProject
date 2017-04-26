@@ -6,10 +6,10 @@
 
 <!-- Search Bar Functionality -->
 <form action="" class="form-horizontal">
-    <div class="form-group">
+    <div class="form-group" data-role="fieldcontain">
         <label for="searchbar" class="col-sm-2 control-label" style="font-size: 20px;">SEARCH:</label>
         <div class="col-sm-4">
-            <input id="searchbar" class="typeahead form-control" type="text" value="" style="font-size: 20px;"/>
+            <input id="searchbar" class="typeahead form-control" type="search" value="" style="font-size: 20px;"/>
         </div>
     </div>
 </form>
@@ -87,6 +87,28 @@
     {
         name: 'products',
         source: substringMatcher(products)
+    });
+
+    // MOBILE-VERSION-SPECIFIC CODE
+    // ****************************
+    // THIS IS BAD CODE. ITS COVERING UP THE PROBLEM RATHER THAN FIXING IT.
+    // FOR SOME REASON, TWO DIVS WITH THE UI-ICON-SEARCHFIELD CLASS ARE
+    // CREATED IN THE LIST VIEW. IN THE DESKTOP EXPERIENCE, THE 1ST ONE
+    // HAS AN OPACITY OF 1. IN THE MOBILE EXPERIENCE, THAT FIRST UNWANTED
+    // VIEW HAS AN OPACITY OF 1 BUT WAS STILL VISIBLE. I THINK THE CODE
+    // CAME THAT WAY.
+
+    //$(document).ready(function () {
+    //    if ($('div .ui-icon-searchfield').length > 1) {
+    //        $('div .ui-icon-searchfield').first().remove();
+    //    }
+    //});
+
+    $(document).ready(function () {
+        if ($('html').hasClass('ui-mobile')) {
+            // We are in the mobile version of the site
+            $('.control-label').hide();
+        }
     });
 
 </script>

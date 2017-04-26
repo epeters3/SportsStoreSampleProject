@@ -11,7 +11,7 @@
 </style>
 
 <div data-role="header" data-theme="b">
-    <h1>Your Cart</h1>
+    <h1>YOUR CART:</h1>
 </div>
 
 <table id="cartTable" class="table ui-responsive" data-role="table">
@@ -21,6 +21,7 @@
             <th>Item</th>
             <th class="text-right">Price</th>
             <th class="text-right">Subtotal</th>
+            <th>Remove?</th>
         </tr>
     </thead>
     <tbody>
@@ -31,27 +32,33 @@
                 <td class="text-left">@line.Product.Name</td>
                 <td class="text-right">@line.Product.Price.ToString("c")</td>
                 <td class="text-right">@((line.Quantity * line.Product.Price).ToString("c"))</td>
-                <td>
+                <td clss="text-center">
                     @using (Html.BeginForm("RemoveFromCart", "Cart"))
                 {
                         @Html.Hidden("ProductId", line.Product.ProductID)
-                        @Html.HiddenFor(x => x.ReturnUrl)
-                        <input class="btn btn-sm btn-warning" type="submit" value="" data-role="button" data-iconpos="notext" data-icon="delete"/>
+                        @Html.HiddenFor(x => x.ReturnUrl) <!---->
+                        <input class="btn btn-warning" type="submit" data-iconpos="notext" value="" data-role="button" data-icon="delete"/>
                     }
                 </td>
             </tr>
         }
     </tbody>
-    <tfoot>
-        <tr>
-            <td colspan="3" class="text-right">Total:</td>
-            <td class="text-right">@Model.Cart.ComputeTotalValue().ToString("c")</td>
-        </tr>
-    </tfoot>
 </table>
+
+<div data-role="header" data-theme="e">
+    <h1>
+        <strong>Total:</strong>
+        @Model.Cart.ComputeTotalValue().ToString("c")
+    </h1>
+</div>
 
 <div class="text-enter">
     <a class="btn btn-primary" data-role="button" href="@Model.ReturnUrl">Continue Shopping</a>
     @Html.ActionLink("Checkout now", "Checkout", null, new { @class = "btn btn-primary", data_role = "button" })
 </div>
 
+<style>
+    tr {
+        border-bottom: 1px solid #d6d6d6;
+    }
+</style>

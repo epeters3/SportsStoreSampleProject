@@ -17,6 +17,7 @@
 <script>
     function loadEditPartial(productId) {
         $("#productEditContainer").load("@Url.Action("LoadEditPartial", "Admin")?productId=" + productId);
+        $("#productEditContainer").show();
     }
 
     function loadProductAdminListPartial() {
@@ -32,8 +33,10 @@
             Name: $(form.find("#Name")[0]).val(),
                 Description: $(form.find("#Description")[0]).val(),
             Price: $(form.find("#Price")[0]).val(),
-                Category: $(form.find("#Category")[0]).val()
+            Category: $(form.find("#Category")[0]).val(),
+            InventoryQty: $(form.find("#InventoryQty")[0]).val()
         }
+        $('#productEditContainer').hide();
 
         $.post("@Url.Action("EditAsync", "Admin")", product, function (data) {
             loadProductAdminListPartial();
