@@ -5,8 +5,8 @@
 }
 
 <!-- Search Bar Functionality -->
-<form action="" class="form-horizontal">
-    <div class="form-group" data-role="fieldcontain">
+<form action="" class="form-horizontal" id="searchForm">
+    <div class="form-group" data-role="fieldcontain" id="searchBarWrapper">
         <label for="searchbar" class="col-sm-2 control-label" style="font-size: 20px;">SEARCH:</label>
         <div class="col-sm-4">
             <input id="searchbar" class="typeahead form-control" type="search" value="" style="font-size: 20px;"/>
@@ -98,6 +98,9 @@
     // VIEW HAS AN OPACITY OF 1 BUT WAS STILL VISIBLE. I THINK THE CODE
     // CAME THAT WAY.
 
+    // This is supposed to fix the issue of multiple searchbar divs appearing,
+    // but doesn't work successfully when a different category is selected.
+    // Also, the search results are incorrectly formatted for the mobile view.
     //$(document).ready(function () {
     //    if ($('div .ui-icon-searchfield').length > 1) {
     //        $('div .ui-icon-searchfield').first().remove();
@@ -107,7 +110,9 @@
     $(document).ready(function () {
         if ($('html').hasClass('ui-mobile')) {
             // We are in the mobile version of the site
+            // Hide the search bar's label
             $('.control-label').hide();
+            $('#searchForm').hide();
         }
     });
 

@@ -67,7 +67,7 @@ namespace SportsStore.WebUI.Controllers
         // Takes visitor to the checkout page
         public ViewResult Checkout()
         {
-            return View(new ShippingDetails());
+            return View(new CartIndexViewModel());
         }
 
         [HttpPost]

@@ -19,7 +19,7 @@
     {
         <div class="pull-right">
             @Html.HiddenFor(x => x.ProductID)
-            @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
+            @Html.Hidden("returnUrl", "/")
             @if (Model.InventoryQty != 0)
             {
                 <input type="submit" class="btn btn-success" value="Add to cart" />
@@ -28,7 +28,6 @@
             {
                 <input type="submit" class="btn btn-danger" value="Out of stock" disabled />
             }
-
         </div>
     }
 
